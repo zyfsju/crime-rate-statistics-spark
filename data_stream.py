@@ -62,7 +62,12 @@ def run_spark_job(spark):
 
     # TODO Q1. Submit a screen shot of a batch ingestion of the aggregation
     # TODO write output stream
-    query = agg_df.writeStream.format("console").outputMode("complete").start()
+    query = (
+        agg_df.writeStream.format("console")
+        .outputMode("complete")
+        # .option("truncate", "false")
+        .start()
+    )
 
     # TODO attach a ProgressReporter
     query.awaitTermination()
@@ -95,7 +100,7 @@ if __name__ == "__main__":
         .config("spark.ui.port", 3000)
         .getOrCreate()
     )
-    spark.sparkContext.setLogLevel("DEBUG")
+    spark.sparkContext.setLogLevel("WARN")
     logger.info("Spark started")
 
     run_spark_job(spark)

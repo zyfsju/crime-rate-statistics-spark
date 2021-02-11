@@ -128,6 +128,8 @@ only showing top 20 rows
 2021-02-11 16:10:25 INFO  KafkaSource:54 - GetBatch called with start = Some({"police.service.calls":{"1":1131,"0":1127}}), end = {"police.service.calls":{"1":1141,"0":1134}}
 ```
 
+![spark_batch.PNG](img/spark_batch.PNG)
+
 ![Spark UI](img/spark_ui.PNG)
 
 ![Spark UI SQL](img/spark_ui_sql.PNG)
